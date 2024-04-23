@@ -10,7 +10,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
+  <body class="p-2">
+    <%= render partial: 'layouts/nav'%>
     <%= yield %>
   </body>
 </html>

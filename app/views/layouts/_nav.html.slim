@@ -1,0 +1,11 @@
+header.d-flex.pt-2.justify-content-between
+  .container
+    h1 Home
+  .container.d-flex.align-items-center.justify-content-around.w-25.h-50
+    .d-flex.w-100.justify-content-around
+      - if current_user
+        = button_to 'Выйти', destroy_user_session_path, method: :delete, class: 'btn btn-outline-info'
+      - else
+        = link_to 'Войти', new_user_session_path, class: 'btn btn-outline-info'
+        = link_to 'Зарегистрироваться', new_user_registration_path, class: 'btn btn-outline-info'
+hr
