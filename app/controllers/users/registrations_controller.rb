@@ -10,11 +10,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super do |user|
       if user.save
+        flash[:primary] = 'Вы успешно зарегистрировались'
         sign_in(user)
         redirect_to root_path and return
-        flash[:notice] = 'You have been successfully signed up'
       else
-        flash[:failure] = user.errors.full_messages.join(' ')
+        flash[:danger] = user.errors.full_messages.join(' ')
       end
     end
   end

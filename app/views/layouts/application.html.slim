@@ -10,4 +10,7 @@ html
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
   body.d-flex.flex-column.h-100
     = render partial: 'layouts/nav'
-    = yield
+    .container.my-4
+      - if flash.any?
+        = render partial: 'layouts/flash'
+      == yield

@@ -1,21 +1,9 @@
 h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  | Вход
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   = render "users/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "current-password"
-  - # if devise_mapping.rememberable?
-  - # <div class="field">
-  - #= f.check_box :remember_me
-  - #= f.label :remember_me
-  - # </div>
-  - # end
-  .actions
-    = f.submit "Log in", class: 'btn btn-outline-dark my-2'
-= render "users/shared/links"
+
+  = f.input :email, autofocus: true, autocomplete: "email"
+  = f.input :password
+  
+  = f.submit 'Войти', class: 'btn btn-primary'

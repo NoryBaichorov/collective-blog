@@ -1,0 +1,18 @@
+h1
+  | Коллективный блог
+.row
+  - @posts.each do |post|
+    .col-md-12
+      .card.mb-3
+        .card-body
+          h2.h5.card-title
+            = link_to "#{post.title}", post_path(post), class: 'link-dark text-decoration-none'
+          .card-text.mb-2
+            = truncate(post.body, length: 295)
+          .text-right.small.text-muted.mt-auto
+            span.me-2
+              | Понравилось: 0
+            span.me-2
+              = "#{beauty_time(post.created_at)} ago"
+            span
+              = post.creator

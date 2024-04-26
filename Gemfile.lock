@@ -113,6 +113,7 @@ GEM
     erubi (1.12.0)
     faker (3.3.1)
       i18n (>= 1.8.11, < 2)
+    foreman (0.88.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.4)
@@ -249,6 +250,9 @@ GEM
     sentry-ruby (5.17.3)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
+    simple_form (5.3.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -303,6 +307,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   faker
+  foreman
   jbuilder
   jsbundling-rails
   minitest-power_assert
@@ -314,6 +319,7 @@ DEPENDENCIES
   selenium-webdriver
   sentry-rails
   sentry-ruby
+  simple_form
   slim
   slim_lint
   sprockets-rails

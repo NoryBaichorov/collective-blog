@@ -1,0 +1,24 @@
+ol.breadcrumb
+  li.breadcrumb-item
+    = link_to 'Все посты', posts_path
+  li.breadcrumb-item.active
+    = @post.category.name
+.row.justify-content-center.mt-4
+  article.col-12
+    h1.mb-4.mb-lg-5
+      = @post.title
+    p
+      = @post.body
+    .d-flex.justify-content-between.mt-5
+      div
+        span.me-2
+          = @post.creator  
+        span
+          = "#{beauty_time(@post.created_at)} ago"
+      div
+        span.me-2
+          | 0
+        i.bi.bi-hand-thumbs-up
+.lead.mt-3
+  span
+    | Комментарии
