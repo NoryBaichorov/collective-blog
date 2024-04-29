@@ -1,6 +1,6 @@
 databases:
-  - name: rails-project-64
-    databaseName: rails-project-64_db
+  - name: rails_project_64
+    databaseName: rails_project_64_db
     user: blog
     plan: free
     region: singapore
