@@ -12,7 +12,7 @@ services:
     plan: free
     region: singapore
     buildCommand: "./bin/render-build.sh"
-    startCommand: bundle exec rails start
+    startCommand: bundle exec rails server
     envVars:
       - key: DATABASE_URL
         fromDatabase:
