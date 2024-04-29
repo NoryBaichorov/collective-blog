@@ -1,5 +1,5 @@
 databases:
-  - name: rails_project_64
+  - name: rails_project_64_db
     databaseName: rails_project_64_db
     user: blog
     plan: free
@@ -12,7 +12,7 @@ services:
     plan: free
     region: singapore
     buildCommand: "./bin/render-build.sh"
-    startCommand: "./bin/render-start.sh"
+    startCommand: bundle exec rails start
     envVars:
       - key: DATABASE_URL
         fromDatabase:
