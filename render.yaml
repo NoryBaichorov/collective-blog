@@ -10,7 +10,7 @@ services:
     name: rails_project_64
     runtime: ruby
     plan: free
-    region: us-west
+    region: singapore
     buildCommand: "./bin/render-build.sh"
     startCommand: "./bin/render-start.sh"
     envVars:
