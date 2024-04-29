@@ -1,0 +1,17 @@
+# == Schema Information
+#
+# Table name: post_comments
+#
+#  id         :integer          not null, primary key
+#  content    :string
+#  post_id    :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  ancestry   :string
+#  user_id    :integer          not null
+#
+
+one:
+  content: this is comment with comments
+  user: one
+  post: one

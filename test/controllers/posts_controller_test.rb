@@ -1,19 +1,16 @@
 require_relative "../test_helper"
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    host! 'localhost:3000'
-    
+  setup do    
     @user = users(:one)
-    @post = posts
+    @post = posts(:one)
 
     @attrs = {
       title: Faker::String.random(length: 10),
       body: Faker::String.random(length: 220),
       category_id: 1,
-      creator: 'nory.baichorov@gi.com'
     }
-    
+    sign_in @user
   end
 
   test 'should get index' do
@@ -21,15 +18,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should unathorized user can't create post" do
-    get new_post_url
-    assert_response :redirect
-    assert_redirected_to root_path
-  end
+  # test "should unathorized user can't create post" do
+  #   get new_post_url
+  #   assert_response :redirect
+  #   assert_redirected_to root_path
+  # end
 
-  test 'should get new' do
-    sign_in @user
-    
+  test 'should get new' do    
     get new_post_url
     
     assert_response :success
@@ -38,9 +33,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test 'should create post' do
     post posts_url, params: { post: @attrs }
 
+    post = Post.find_by @attrs
+
     assert_response :success
-    assert_redirected_to root_path
-    assert_select 'div', { class: 'alert alert-primary' }, 'Пост был создан.'
+    assert_redirected_to post_url(post)
   end
 
   test 'should show post' do

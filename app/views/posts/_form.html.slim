@@ -1,0 +1,6 @@
+= simple_form_for @post do |f|
+  = f.input :title, hint: '5-255 символов', label: 'Заголовок'
+  = f.association :category, collection: Category.all.order(:name), required: true, selected: 1, prompt: '', label: 'Категория'
+  = f.input :body, as: :text, hint: 'От 200 до 4000 символов', label: 'Содержание'
+
+  = f.button :submit, class: 'btn btn-primary'

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  before_action :authenticate, only: :new
+  before_action :authenticate, only: %i[new create]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -7,6 +9,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+
+    @comment = PostComment.new
+    @comments = @post.comments.includes(:user).arrange
   end
 
   def new
@@ -14,13 +19,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @category = Category.find(params[:post][:category_id])
-    
-    @post = @category.posts.build(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       flash[:primary] = 'Пост был создан.'
-      redirect_to root_path
+      redirect_to @post
     else
       flash[:danger] = @post.errors.full_messages.join(' ')
       render :new
@@ -30,7 +33,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :category_id, :creator)
+    params.require(:post).permit(:title, :body, :category_id)
   end
 
   def authenticate

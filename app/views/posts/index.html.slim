@@ -13,6 +13,6 @@ h1
             span.me-2
               | Понравилось: 0
             span.me-2
-              = "#{beauty_time(post.created_at)} ago"
+              = "#{pretty_time_ago(post.created_at)} ago"
             span
-              = post.creator
+              = post.creator.email

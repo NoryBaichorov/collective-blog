@@ -1,13 +1,20 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  body        :text
+#  category_id :integer          not null
+#  creator_id  :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 
 one:
-  title: MyString
-  body: MyText
-  creator: MyString
+  title: <%= Faker::Lorem.sentence %>
+  body: <%= Faker::Lorem.paragraph %>
   category: one
+  creator:
+    email: one
 
-two:
-  title: MyString
-  body: MyText
-  creator: MyString
-  category: two

@@ -12,9 +12,9 @@ ol.breadcrumb
     .d-flex.justify-content-between.mt-5
       div
         span.me-2
-          = @post.creator  
+          = @post.creator.email  
         span
-          = "#{beauty_time(@post.created_at)} ago"
+          = "#{pretty_time_ago(@post.created_at)}"
       div
         span.me-2
           | 0
@@ -22,3 +22,7 @@ ol.breadcrumb
 .lead.mt-3
   span
     | Комментарии
+  = render 'posts/comments/form', comment: @comment,  url: post_comments_path(@post) if current_user
+  = render 'posts/comments/comments', comments: @comments
+
+  

@@ -10,6 +10,5 @@ module ActiveSupport
 
     include Devise::Test::IntegrationHelpers
     include Warden::Test::Helpers
-
   end
 end

@@ -4,6 +4,6 @@ h2
   = render "users/shared/error_messages", resource: resource
 
   = f.input :email, autofocus: true, autocomplete: "email"
-  = f.input :password
+  = f.input :password, label: 'Пароль'
   
   = f.submit 'Войти', class: 'btn btn-primary'

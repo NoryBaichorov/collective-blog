@@ -5,6 +5,8 @@ Rails.application.routes.draw do
                                     sessions: 'users/sessions' }
 
   resources :posts, except: %i[edit update destroy] do
-    resources :comments, only: :show
+    scope module: :posts do
+      resources :comments, only: :create
+    end
   end
 end

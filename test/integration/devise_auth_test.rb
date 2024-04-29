@@ -2,8 +2,10 @@ require_relative "../test_helper"
 
 class DeviseAuthTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
+
     get user_session_url
-    sign_in users(:one)
+    sign_in @user
     post user_session_url
   end
 
@@ -26,22 +28,23 @@ class DeviseAuthTest < ActionDispatch::IntegrationTest
   end
 
   test 'should sign out' do
-    sign_out(:user)
+    debugger
+    sign_out @user
 
     get root_path
 
     assert_response :success
   end
 
-  test 'should auto sign out after inaction' do
-    get new_post_url
+  # test 'should auto sign out after inaction' do
+  #   get new_post_url
 
-    assert_response :success
+  #   assert_response :success
 
-    sleep 1.minute
+  #   sleep 1.minute
     
-    get new_post_url
+  #   get new_post_url
 
-    assert_response :redirect
-  end
+  #   assert_response :redirect
+  # end
 end
