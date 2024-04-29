@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   include ActionView::Helpers::DateHelper
 
@@ -6,6 +8,6 @@ module ApplicationHelper
   end
 
   def format_date(date)
-    date.strftime("%-d %b., %H:%M")
+    date.strftime('%-d %b., %H:%M')
   end
 end

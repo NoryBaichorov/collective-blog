@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-
 Devise.setup do |config|
- 
-  # config.secret_key = '0237357abd53e56afe6f42cae3f24bd2252fe9a8f72f5c45655fbfa116c5ee1c54b723253ba721059c7e56379507b75ae6878462036eb31bb6a84b36a34afe73'
-
   # config.parent_controller = 'DeviseController'
 
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
@@ -32,9 +28,6 @@ Devise.setup do |config|
   config.skip_session_storage = [:http_auth]
 
   config.stretches = Rails.env.test? ? 1 : 12
-
-  # Set up a pepper to generate the hashed password.
-  # config.pepper = 'b7f5a8d1832cee447719d870b30196d1e96d9fc44f8ddb8c04a195652cd116d2c74b971c100b1941d365608f1356688576e17865686bda3dd8810422e0d42b99'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false

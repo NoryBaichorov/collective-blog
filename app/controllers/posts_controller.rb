@@ -10,6 +10,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
 
+    @like = @post.likes.find_by(user: current_user)
+
     @comment = PostComment.new
     @comments = @post.comments.includes(:user).arrange
   end
@@ -25,8 +27,8 @@ class PostsController < ApplicationController
       flash[:primary] = 'Пост был создан.'
       redirect_to @post
     else
+      redirect_back(fallback_location: new_post_path)
       flash[:danger] = @post.errors.full_messages.join(' ')
-      render :new
     end
   end
 
@@ -34,12 +36,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :category_id)
-  end
-
-  def authenticate
-    if current_user.nil?
-      redirect_to root_path
-      flash[:danger] = 'Войдите в свой аккаунт или зарегистрируйтесь!'
-    end
   end
 end

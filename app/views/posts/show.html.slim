@@ -12,17 +12,24 @@ ol.breadcrumb
     .d-flex.justify-content-between.mt-5
       div
         span.me-2
-          = @post.creator.email  
+          = @post.creator.email
         span
           = "#{pretty_time_ago(@post.created_at)}"
       div
         span.me-2
-          | 0
-        i.bi.bi-hand-thumbs-up
+          = @post.likes.count
+        - if current_user
+          - if @like
+            = link_to post_like_path(@post, @like.id), class: 'link-dark', data: { turbo_method: :delete } do
+              i.bi.bi-hand-thumbs-up-fill
+          - else
+            = link_to post_likes_path(@post), class: 'link-dark', data: { turbo_method: :post } do
+              i.bi.bi-hand-thumbs-up
+        - else
+          a.link-dark
+            i.bi.bi-hand-thumbs-up
 .lead.mt-3
   span
     | Комментарии
-  = render 'posts/comments/form', comment: @comment,  url: post_comments_path(@post) if current_user
+  = render 'posts/comments/form', comment: @comment, url: post_comments_path(@post) if current_user
   = render 'posts/comments/comments', comments: @comments
-
-  

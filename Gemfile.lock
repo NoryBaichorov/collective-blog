@@ -79,9 +79,6 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ancestry (4.3.3)
       activerecord (>= 5.2.6)
-    annotate (3.2.0)
-      activerecord (>= 3.2, < 8.0)
-      rake (>= 10.4, < 14.0)
     ast (2.4.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
@@ -307,7 +304,6 @@ PLATFORMS
 
 DEPENDENCIES
   ancestry
-  annotate
   bootsnap
   capybara
   cssbundling-rails

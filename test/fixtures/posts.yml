@@ -15,6 +15,11 @@ one:
   title: <%= Faker::Lorem.sentence %>
   body: <%= Faker::Lorem.paragraph %>
   category: one
-  creator:
-    email: one
+  creator: one
+
+two:
+  title: <%= Faker::Lorem.sentence %>
+  body: <%= Faker::Lorem.paragraph %>
+  category: two
+  creator: two
 

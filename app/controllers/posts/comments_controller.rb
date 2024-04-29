@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
 module Posts
-  class CommentsController < ApplicationController    
-    before_action :find_post
+  class CommentsController < ApplicationController
+    before_action :set_comment_params
 
     def create
-      @comment = @post.comments.build(comment_params)
-      @comment.user = current_user
-
       if @comment.save
         redirect_to post_path(@post)
         flash[:primary] = 'Комментарий был добавлен'
@@ -19,8 +16,9 @@ module Posts
 
     protected
 
-    def find_post
-      @post = Post.find(params[:post_id])
+    def set_comment_params
+      @comment = resource_post.comments.build(comment_params)
+      @comment.user = current_user
     end
 
     def comment_params

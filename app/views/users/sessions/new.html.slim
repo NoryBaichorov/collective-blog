@@ -1,9 +1,8 @@
 h2
   | Вход
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = render "users/shared/error_messages", resource: resource
+  = render "users/shared/error_messages", resource:
 
   = f.input :email, autofocus: true, autocomplete: "email"
   = f.input :password, label: 'Пароль'
-  
   = f.submit 'Войти', class: 'btn btn-primary'

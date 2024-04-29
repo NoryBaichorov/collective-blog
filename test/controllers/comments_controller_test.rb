@@ -1,36 +1,42 @@
-require_relative "../test_helper"
+# frozen_string_literal: true
+
+require_relative '../test_helper'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
+    sign_in users(:one)
+
     @post = posts(:one)
     @comment = post_comments(:one)
-
-    @attrs = {
-      content: Faker::Lorem.paragraph(random_sentences_to_add: 10)
-    }
-    @nested_attrs = @attrs.merge({ parent_id: @parent_comment.id.to_s })
-
-    sign_in @user
+    @nested_comment = post_comments(:nested)
   end
 
   test 'should create comment' do
-    post post_comments_url(@post), params: { post_comment: @attrs }
+    post post_comments_path(@post), params: { post_comment: { content: @comment.content } }
 
-    comment = PostComment.find_by @attrs.merge({ post: @post, user: @user })
+    created_post_comment =
+      PostComment.find_by(
+        post_id: @comment.post_id,
+        ancestry: @comment.ancestry,
+        content: @comment.content
+      )
 
-    assert { comment }
-    assert_redirected_to @post
+    assert(created_post_comment)
+    assert_redirected_to post_url(@post)
   end
 
-  test 'should create children comment' do
-    post post_comments_url(@post), params: { post_comment: @nested_attrs }
+  test 'should create nested comment' do
+    post post_comments_path(@post), params: { post_comment: { content: @nested_comment.content,
+                                                              parent_id: ActiveRecord::FixtureSet.identify(:one) } }
 
-    comment = PostComment.find do |i|
-      i.ancestry == @nested_attrs[:parent_id] && i.post == @post && i.user == @user
-    end
+    created_post_comment =
+      PostComment.find_by(
+        post_id: @nested_comment.post_id,
+        ancestry: @nested_comment.ancestry,
+        content: @nested_comment.content
+      )
 
-    assert { comment }
-    assert_redirected_to @post
+    assert(created_post_comment)
+    assert_redirected_to post_url(@post)
   end
 end

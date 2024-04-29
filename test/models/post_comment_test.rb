@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: post_comments
@@ -10,7 +12,7 @@
 #  ancestry   :string
 #  user_id    :integer          not null
 #
-require "test_helper"
+require 'test_helper'
 
 class PostCommentTest < ActiveSupport::TestCase
   # test "the truth" do

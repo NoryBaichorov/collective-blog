@@ -11,7 +11,7 @@ h1
             = truncate(post.body, length: 295)
           .text-right.small.text-muted.mt-auto
             span.me-2
-              | Понравилось: 0
+              = "Понравилось: #{post.likes.count}"
             span.me-2
               = "#{pretty_time_ago(post.created_at)} ago"
             span

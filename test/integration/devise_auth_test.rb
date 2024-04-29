@@ -1,4 +1,6 @@
-require_relative "../test_helper"
+# frozen_string_literal: true
+
+require_relative '../test_helper'
 
 class DeviseAuthTest < ActionDispatch::IntegrationTest
   setup do
@@ -19,7 +21,7 @@ class DeviseAuthTest < ActionDispatch::IntegrationTest
   test 'should create user and sign in' do
     email = Faker::Internet.email
     password = Faker::Internet.password(min_length: 6, max_length: 10)
-    User.create(email: email, password: password)
+    User.create(email:, password:)
 
     get root_path
 
@@ -28,7 +30,6 @@ class DeviseAuthTest < ActionDispatch::IntegrationTest
   end
 
   test 'should sign out' do
-    debugger
     sign_out @user
 
     get root_path
@@ -42,7 +43,7 @@ class DeviseAuthTest < ActionDispatch::IntegrationTest
   #   assert_response :success
 
   #   sleep 1.minute
-    
+
   #   get new_post_url
 
   #   assert_response :redirect

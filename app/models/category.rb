@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: categories
@@ -9,6 +11,6 @@
 #
 class Category < ApplicationRecord
   has_many :posts
-  
+
   validates :name, presence: true
 end
