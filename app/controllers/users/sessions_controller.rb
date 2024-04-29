@@ -2,7 +2,7 @@
 
 module Users
   class SessionsController < Devise::SessionsController
-    before_action :configure_sign_in_params, only: :create
+    before_action :configure_sign_in_params
     after_action :remove_notice
 
     protected

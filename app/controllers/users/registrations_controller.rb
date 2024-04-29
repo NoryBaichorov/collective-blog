@@ -7,7 +7,7 @@ module Users
     def create
       super do |user|
         if user.save
-          flash[:primary] = 'Вы успешно зарегистрировались'
+          flash[:primary] = t('devise.registrations.signed_up')
           sign_in(user)
           redirect_to root_path and return
         else
@@ -15,22 +15,6 @@ module Users
         end
       end
     end
-
-    # def edit
-    #   super
-    # end
-
-    # def update
-    #   super
-    # end
-
-    # def destroy
-    #   super
-    # end
-
-    # def cancel
-    #   super
-    # end
 
     protected
 

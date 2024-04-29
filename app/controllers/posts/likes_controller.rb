@@ -11,7 +11,7 @@ module Posts
     end
 
     def destroy
-      return unless @like.present?
+      return if @like.blank?
 
       @like.destroy if @like.user == current_user
       redirect_to resource_post

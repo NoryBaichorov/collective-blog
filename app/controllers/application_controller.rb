@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
     return unless current_user.nil?
 
     redirect_to root_path
-    flash[:danger] = 'Войдите в свой аккаунт или зарегистрируйтесь!'
+    flash.now[:danger] = t('unauthorized_user')
   end
 end

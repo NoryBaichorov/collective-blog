@@ -1,0 +1,6 @@
+ru:
+  unauthorized_user: 'Войдите в систему или зарегистрируйтесь'
+  comments:
+    create: 'Комментарий добавлен'
+  posts:
+    create: 'Пост был создан'

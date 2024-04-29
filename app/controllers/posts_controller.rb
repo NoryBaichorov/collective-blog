@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate, only: %i[new create]
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.order(created_at: :desc)
   end
 
   def show
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      flash[:primary] = 'Пост был создан.'
+      flash[:primary] = t('posts.create')
       redirect_to @post
     else
       redirect_back(fallback_location: new_post_path)

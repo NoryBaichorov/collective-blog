@@ -36,6 +36,7 @@ gem 'bootsnap', require: false
 
 # Gems for current project
 gem 'rubocop', require: false
+gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
 
 gem 'minitest-power_assert'

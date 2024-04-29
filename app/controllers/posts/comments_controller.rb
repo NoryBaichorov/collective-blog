@@ -7,7 +7,7 @@ module Posts
     def create
       if @comment.save
         redirect_to post_path(@post)
-        flash[:primary] = 'Комментарий был добавлен'
+        flash[:primary] = t('comments.create')
       else
         redirect_back(fallback_location: post_path(@post))
         flash[:danger] = @comment.errors.full_messages.join(' ')
