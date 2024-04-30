@@ -14,7 +14,7 @@ ol.breadcrumb
         span.me-2
           = @post.creator.email
         span
-          = "#{pretty_time_ago(@post.created_at)}"
+          = pretty_time_ago(@post.created_at).to_s
       div
         span.me-2
           = @post.likes.count
