@@ -14,4 +14,7 @@ test:
 	yarn run build:css
 	NODE_ENV=test bin/rails test
 
+lint:
+	rubocop
+
 .PHONY: test
