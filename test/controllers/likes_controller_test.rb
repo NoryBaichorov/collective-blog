@@ -23,7 +23,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   test 'should destroy like' do
     like = post_likes(:one)
     delete post_like_path(@post, like)
-    refute { @post.likes.find(like.id).nil? }
+    assert_not @post.likes.find_by(user: @user)
     assert_redirected_to post_url(@post)
   end
 end

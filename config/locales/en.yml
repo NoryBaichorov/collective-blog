@@ -2,5 +2,5 @@ en:
   unauthorized_user: "Log in or Sign up"
   comments:
     create: 'The comment has been added'
-    posts:
+  posts:
     create: 'The post has been created'

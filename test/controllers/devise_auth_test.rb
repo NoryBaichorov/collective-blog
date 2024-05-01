@@ -37,15 +37,15 @@ class DeviseAuthTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test 'should auto sign out after inaction' do
-  #   get new_post_url
+  test 'should auto sign out after inaction' do
+    get new_post_url
 
-  #   assert_response :success
+    assert_response :success
 
-  #   sleep 1.minute
+    sleep 1.minute
 
-  #   get new_post_url
+    get new_post_url
 
-  #   assert_response :redirect
-  # end
+    assert_response :redirect
+  end
 end

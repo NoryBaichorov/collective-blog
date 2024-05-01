@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def authenticate
     return unless current_user.nil?
 
-    redirect_to root_path
     flash.now[:danger] = t('unauthorized_user')
+    redirect_to root_path
   end
 end
