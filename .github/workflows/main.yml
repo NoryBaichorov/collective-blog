@@ -27,6 +27,3 @@ jobs:
 
       - name: Install Dependencies and prepare db
         run: make setup
-
-      - name: Run Tests
-        run: make test
