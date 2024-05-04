@@ -1,4 +1,4 @@
-setup:
+install:
 	bundle install
 
 start:
