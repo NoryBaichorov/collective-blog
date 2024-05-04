@@ -16,7 +16,7 @@ AllCops:
     - 'code/db/data_schema.rb'
     - 'code/vendor/**/*'
     - 'code/node_modules/**/*'
-    - 'vendor/**/*'
+    - 'vendor/bundle/**/*'
     - 'node_modules/**/*'
     - 'code/tmp/**/*'
   SuggestExtensions: false
