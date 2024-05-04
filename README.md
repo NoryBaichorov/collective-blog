@@ -5,8 +5,6 @@
 
 [Collective Blog](https://rails-project-64-9jq4.onrender.com)
 
-Actions Status CI
-
 Collective blog developed by Ruby on Rails framework.
 
 Users can read posts, publish their own posts, leave comments on posts and comments and like posts.
