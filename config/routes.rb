@@ -3,8 +3,7 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
-  devise_for :users, controllers: { registrations: 'users/registrations',
-                                    sessions: 'users/sessions' }
+  devise_for :users
 
   resources :posts, only: %i[index show new create] do
     scope module: :posts do

@@ -7,13 +7,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     @post = posts(:one)
     @category = categories(:one)
-
-    @attrs = {
-      title: Faker::Movies::HarryPotter.character,
-      body: Faker::Lorem.paragraph_by_chars(number: 256),
-      category_id: @category.id,
-      creator_id: @post.creator.id
-    }
   end
 
   test 'should get index' do
@@ -34,10 +27,16 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create post' do
+    @attrs = {
+      title: Faker::Movies::HarryPotter.character,
+      body: Faker::Lorem.paragraph_by_chars(number: 256),
+      category_id: @category.id
+    }
+
     sign_in @user
     post posts_url, params: { post: @attrs }
 
-    new_post = Post.find_by @attrs
+    new_post = Post.find_by @attrs.merge(creator_id: @post.creator.id)
     assert_redirected_to post_url(new_post)
   end
 

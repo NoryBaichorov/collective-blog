@@ -16,3 +16,9 @@ one:
   body: <%= Faker::Lorem.paragraph %>
   category: one
   creator: one
+
+without_like:
+  title: <%= Faker::Lorem.sentence %>
+  body: <%= Faker::Lorem.paragraph %>
+  category: one
+  creator: one
