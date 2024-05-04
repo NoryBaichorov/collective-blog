@@ -14,9 +14,9 @@ AllCops:
     - 'code/db/schema.rb'
     - 'code/db/migrate/**'
     - 'code/db/data_schema.rb'
-    - 'code/vendor/**/*'
+    - 'code/vendor/'
     - 'code/node_modules/**/*'
-    - 'vendor/**/*'
+    - 'vendor/'
     - 'node_modules/**/*'
     - 'code/tmp/**/*'
   SuggestExtensions: false
