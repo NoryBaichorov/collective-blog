@@ -1,5 +1,6 @@
 install:
 	bundle install
+	yarn
 
 start:
 	bin/dev
