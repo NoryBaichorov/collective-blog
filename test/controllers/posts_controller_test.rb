@@ -11,7 +11,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @attrs = {
       title: Faker::Movies::HarryPotter.character,
       body: Faker::Lorem.paragraph_by_chars(number: 256),
-      category_id: @category.id
+      category_id: @category.id,
+      creator_id: @post.creator.id
     }
   end
 
@@ -29,7 +30,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test 'should not get new if unauthorized user' do
     get new_post_url
     assert_response :redirect
-    assert_redirected_to root_path
+    assert_redirected_to new_user_session_url
   end
 
   test 'should create post' do

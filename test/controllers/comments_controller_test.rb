@@ -8,35 +8,29 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
     @post = posts(:one)
     @comment = post_comments(:one)
-    @nested_comment = post_comments(:nested)
+
+    @attrs = {
+      content: 'content',
+      post_id: @post.id,
+      user_id: @comment.user.id
+    }
+    @nested_attrs = @attrs.merge({ parent_id: @comment.id.to_s })
   end
 
   test 'should create comment' do
-    post post_comments_path(@post), params: { post_comment: { content: @comment.content } }
+    post post_comments_path(@post), params: { post_comment: @attrs }
 
-    created_post_comment =
-      PostComment.find_by(
-        post_id: @comment.post_id,
-        ancestry: @comment.ancestry,
-        content: @comment.content
-      )
+    created_post_comment = PostComment.find_by @attrs
 
-    assert(created_post_comment)
+    assert { created_post_comment }
     assert_redirected_to post_url(@post)
   end
 
   test 'should create nested comment' do
-    post post_comments_path(@post), params: { post_comment: { content: @nested_comment.content,
-                                                              parent_id: ActiveRecord::FixtureSet.identify(:one) } }
+    assert_difference('PostComment.count') do
+      post post_comments_path(@post), params: { post_comment: @nested_attrs }
+    end
 
-    created_post_comment =
-      PostComment.find_by(
-        post_id: @nested_comment.post_id,
-        ancestry: @nested_comment.ancestry,
-        content: @nested_comment.content
-      )
-
-    assert(created_post_comment)
-    assert_redirected_to post_url(@post)
+    assert_equal "/#{@comment.id}/", PostComment.last.ancestry
   end
 end

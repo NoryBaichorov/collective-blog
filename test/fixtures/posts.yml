@@ -12,20 +12,7 @@
 #
 
 one:
-  id: 1
   title: <%= Faker::Lorem.sentence %>
   body: <%= Faker::Lorem.paragraph %>
   category: one
-  creator_id: 1
-  created_at: Wed, 01 May 2024 13:47:28.903908000 UTC +00:00
-  updated_at: Wed, 01 May 2024 13:47:28.903908000 UTC +00:00
-  post_likes_count: 1
-two:
-  id: 2
-  title: <%= Faker::Lorem.sentence %>
-  body: <%= Faker::Lorem.paragraph %>
-  category: one
-  creator_id: 1
-  created_at: Wed, 01 May 2024 13:47:28.903908000 UTC +00:00
-  updated_at: Wed, 01 May 2024 13:47:28.903908000 UTC +00:00
-  post_likes_count: 0
+  creator: one

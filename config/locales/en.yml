@@ -1,6 +1,28 @@
 en:
-  unauthorized_user: "Log in or Sign up"
   comments:
     create: 'The comment has been added'
+    title: Comments
+  hints:
+    content: from 200 to 4000 characters
+    password: (at least 6 characters)
+    title: 5-255 characters
+  label:
+    category: Category
+    content: Content
+    email: Email
+    password: Password
+    password_confirmation: Password confirmation
+    title: Title
+  links:
+    all_posts: All posts
+    create_comment: Create Comment
+    sign_in: Sign in
+    sign_out: Sign out
+    sign_up: Sign up
+  login: Log in
+  new_post: New post
   posts:
     create: 'The post has been created'
+  registration: Registration
+  title: Collective blog
+  unauthorized_user: "Log in or Sign up"

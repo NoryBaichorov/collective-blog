@@ -12,25 +12,7 @@
 #
 
 one:
-  content: first
+  content: comment_one
   user: one
   post: one
   ancestry: /
-
-with_comments:
-  content: this is comment with comments
-  user: one
-  post: one
-  ancestry: /
-
-nested:
-  content: commented comment
-  user: one
-  post: one
-  ancestry: /<%= ActiveRecord::FixtureSet.identify(:with_comments) %>/
-
-deep_nested:
-  content: deep comment
-  user: one
-  post: one
-  ancestry: /<%= [ActiveRecord::FixtureSet.identify(:with_comments), ActiveRecord::FixtureSet.identify(:nested)].join('/') %>/

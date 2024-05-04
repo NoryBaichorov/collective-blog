@@ -1,5 +1,5 @@
 h1
-  | Коллективный блог
+  = t('title')
 .row
   - @posts.each do |post|
     .col-md-12
@@ -11,7 +11,7 @@ h1
             = truncate(post.body, length: 295)
           .text-right.small.text-muted.mt-auto
             span.me-2
-              = "Понравилось: #{post.likes.count}"
+              = "Понравилось: #{post.post_likes_count}"
             span.me-2
               = "#{pretty_time_ago(post.created_at)} ago"
             span

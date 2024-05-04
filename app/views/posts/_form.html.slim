@@ -1,6 +1,6 @@
-= simple_form_for @post do |f|
-  = f.input :title, hint: '5-255 символов', label: 'Заголовок'
-  = f.association :category, collection: Category.order(:name), required: true, selected: 1, prompt: '', label: 'Категория'
-  = f.input :body, as: :text, hint: 'От 200 до 4000 символов', label: 'Содержание'
+= simple_form_for post do |f|
+  = f.input :title, hint: t('hints.title'), label: t('label.title')
+  = f.association :category, collection: Category.order(:name), required: true, selected: 1, prompt: '', label: t('label.category')
+  = f.input :body, as: :text, hint: t('hints.content'), label: t('label.content')
 
   = f.button :submit, class: 'btn btn-primary'

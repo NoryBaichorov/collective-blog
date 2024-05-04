@@ -65,7 +65,7 @@ Devise.setup do |config|
   # to give user feedback and not to assert the e-mail validity.
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
 
-  config.timeout_in = 1.minute
+  config.timeout_in = 40.minutes
 
   # config.lock_strategy = :failed_attempts
 

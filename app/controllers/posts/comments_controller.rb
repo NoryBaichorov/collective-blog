@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 module Posts
-  class CommentsController < ApplicationController
-    before_action :set_comment_params
+  class CommentsController < Posts::ApplicationController
+    before_action :authenticate_user!
 
     def create
+      @comment = resource_post.comments.build(comment_params)
+      @comment.user = current_user
+
       if @comment.save
         redirect_to post_path(@post)
         flash[:primary] = t('comments.create')
@@ -15,11 +18,6 @@ module Posts
     end
 
     protected
-
-    def set_comment_params
-      @comment = resource_post.comments.build(comment_params)
-      @comment.user = current_user
-    end
 
     def comment_params
       params.require(:post_comment).permit(:content, :parent_id)

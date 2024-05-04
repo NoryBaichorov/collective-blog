@@ -1,6 +1,28 @@
 ru:
-  unauthorized_user: 'Войдите в систему или зарегистрируйтесь'
   comments:
-    create: 'Комментарий добавлен'
+    create: Комментарий был добавлен
+    title: Комментарии
+  hints:
+    content: от 200 до 4000 символов
+    password: (не менее 6 символов)
+    title: 5-255 символов
+  label:
+    category: Категория
+    content: Содержание
+    email: Email
+    password: Пароль
+    password_confirmation: Подтверждение пароля
+    title: Заголовок
+  links:
+    all_posts: Все посты
+    create_comment: Оставить комментарий
+    sign_in: Войти
+    sign_out: Выйти
+    sign_up: Зарегистрироваться
+  login: Вход
+  new_post: Новый пост
   posts:
-    create: 'Пост был создан'
+    create: Пост был создан
+  registration: Регистрация
+  title: Коллективный блог
+  unauthorized_user: Войдите или зарегистрируйтесь

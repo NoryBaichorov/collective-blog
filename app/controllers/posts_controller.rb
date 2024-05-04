@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate, only: %i[new create]
+  before_action :authenticate_user!, only: %i[new create]
 
   def index
-    @posts = Post.order(created_at: :desc)
+    @posts = Post.ordered_posts_with_creator
   end
 
   def show

@@ -1,6 +1,6 @@
 ol.breadcrumb
   li.breadcrumb-item
-    = link_to 'Все посты', posts_path
+    = link_to t('links.all_posts'), posts_path
   li.breadcrumb-item.active
     = @post.category.name
 .row.justify-content-center.mt-4
@@ -30,6 +30,6 @@ ol.breadcrumb
             i.bi.bi-hand-thumbs-up
 .lead.mt-3
   span
-    | Комментарии
+    = t('comments.title')
   = render 'posts/comments/form', comment: @comment, url: post_comments_path(@post) if current_user
   = render 'posts/comments/comments', comments: @comments

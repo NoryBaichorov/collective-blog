@@ -12,9 +12,9 @@ console:
 test:
 	yarn run build
 	yarn run build:css
-	NODE_ENV=test bin/rails test
+	NODE_ENV=test bundle exec rake test
 
 lint:
-	rubocop
+	bundle exec rubocop
 
 .PHONY: test

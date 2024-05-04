@@ -21,4 +21,6 @@ class Post < ApplicationRecord
 
   validates :title, presence: true, length: { minimum: 5, maximum: 255 }
   validates :body, presence: true, length: { minimum: 200, maximum: 4000 }
+
+  scope :ordered_posts_with_creator, -> { includes(:creator).order(created_at: :desc) }
 end
