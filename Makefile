@@ -15,6 +15,6 @@ test:
 	NODE_ENV=test bundle exec rake test
 
 lint:
-	bundle exec rubocop
+	bundle exec rubocop --force-exclusion
 
 .PHONY: test
